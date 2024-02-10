@@ -75,7 +75,6 @@ section{
 	
 }
 
-
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
@@ -114,12 +113,12 @@ section{
   	}
 
   	.jumbotron h3{
-		font-family: "League Spartan", sans-serif;
-		font-optical-sizing: auto;
-		font-weight: 600;
-		font-style: normal;
-		line-height: 35px;
-	}
+			font-family: "League Spartan", sans-serif;
+			font-optical-sizing: auto;
+			font-weight: 600;
+			font-style: normal;
+			line-height: 35px;
+		}
 
   	.jumbotron .row.myposition.align-items-center {
     	flex-direction: column-reverse; /* Mengubah urutan elemen agar gambar berada di atas */
@@ -149,6 +148,6 @@ section{
 	}
 
 	#projects img{
-  		width: 24%;
+  		width: 30%;
   	}
 }
