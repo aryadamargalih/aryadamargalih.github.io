@@ -1,0 +1,154 @@
+:root{
+	--shadow:0 2px 2px rgb(0 0 0 / 0.5);
+}
+
+body{
+	color: white;
+}
+
+.mynavbar{
+	background-color: rgba(108, 229, 253, 0.1);
+	backdrop-filter: blur(5px);	
+}
+
+.mynavbar a{
+	text-shadow:0 2px 2px rgb(0 0 0 / 0.5) ;	
+	font-weight: 600;
+}
+
+.jumbotron{
+	padding-top: 10rem;
+	min-height: 100vh;
+}
+
+#about,#projects,#contact{
+	min-height: 100vh;
+}
+
+.card{
+	background-color: rgba(255, 255, 255, 0.6);
+}
+
+footer{
+	margin-top: -3rem;
+}
+
+.jumbotron h3{
+	font-family: "League Spartan", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 600;
+	font-style: normal;
+	line-height: 60px;
+}
+
+.myimg {
+  box-shadow: 0 0 20px 1px #FFFFFF, /* Bayangan dengan warna hitam */
+              0 0 20px 1px #00ABFF; 
+}
+
+
+.jumbotron p{
+	line-height: 1px;
+}
+
+.textjustify{
+	text-align: justify;
+}
+
+.myposition{
+	text-align: left;
+}
+
+
+section{
+	padding-top: 5rem;
+}
+
+#projects img{
+	width: 45%;
+}
+
+#projects h2{
+	font-family: "Rufina", serif;
+	font-weight: 700;
+	font-style: normal;
+	
+}
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+@media (max-width:992px){
+	html{
+		font-size: 60%;
+	}
+
+	img{
+		width: 60%;
+	}
+
+	.jumbotron,#about,#contact,#projects{
+		padding-top: 20rem ;
+	}
+
+	#contact{
+		margin-bottom: 15rem;
+	}
+}
+
+@media (max-width: 768px) {
+  	.jumbotron {
+   	 	padding-top: 15rem;
+    	min-height: 100vh;
+  	}
+
+  	.jumbotron h3{
+		font-family: "League Spartan", sans-serif;
+		font-optical-sizing: auto;
+		font-weight: 600;
+		font-style: normal;
+		line-height: 35px;
+	}
+
+  	.jumbotron .row.myposition.align-items-center {
+    	flex-direction: column-reverse; /* Mengubah urutan elemen agar gambar berada di atas */
+  	}
+
+  	.jumbotron .col img {
+    	width: 40%;
+    	margin-bottom: 25px;
+  	}
+
+  	.myposition {
+    	text-align: center;
+  	}
+
+  	#projects img{
+  		width: 65%;
+  	}
+}
+
+
+@media (max-width:576px){
+	#about,#projects{
+		min-height: 100%;
+	}
+	#contact{
+		margin-bottom:-3rem;
+	}
+
+	#projects img{
+  		width: 24%;
+  	}
+}
