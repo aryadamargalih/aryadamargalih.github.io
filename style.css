@@ -42,8 +42,8 @@ footer{
 }
 
 .myimg {
-  box-shadow: 0 0 20px 1px #FFFFFF, /* Bayangan dengan warna hitam */
-              0 0 20px 1px #00ABFF; 
+  box-shadow: 0 0 20px 1px #ffffff, /* Bayangan dengan warna hitam */
+              0 0 20px 2px #0011F3; 
 }
 
 
