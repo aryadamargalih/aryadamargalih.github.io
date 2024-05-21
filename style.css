@@ -1,153 +1,308 @@
-:root{
-	--shadow:0 2px 2px rgb(0 0 0 / 0.5);
+:root {
+  --shadow: 0 2px 2px rgb(0 0 0 / 0.5);
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(82, 60%, 28%);
+  --title-color: hsl(0, 0%, 15%);
+  --text-color: hsl(0, 0%, 35%);
+  --body-color: hsl(0, 0%, 95%);
+  --container-color: hsl(0, 0%, 100%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Poppins", sans-serif;
+  --h2-font-size: 1.25rem;
+  --small-font-size: 0.813rem;
 }
 
-body{
-	color: white;
+body {
+  color: white;
 }
 
-.mynavbar{
-	background-color: rgba(108, 229, 253, 0.1);
-	backdrop-filter: blur(5px);	
+.mynavbar {
+  background-color: rgba(108, 229, 253, 0.1);
+  backdrop-filter: blur(5px);
 }
 
-.mynavbar a{
-	text-shadow:0 2px 2px rgb(0 0 0 / 0.5) ;	
-	font-weight: 600;
+.mynavbar a {
+  text-shadow: 0 2px 2px rgb(0 0 0 / 0.5);
+  font-weight: 600;
 }
 
-.jumbotron{
-	padding-top: 10rem;
-	min-height: 100vh;
+.jumbotron {
+  padding-top: 10rem;
+  min-height: 100vh;
 }
 
-#about,#projects,#contact{
-	min-height: 100vh;
+#about,
+#skill,
+#contact {
+  min-height: 100vh;
 }
 
-.card{
-	background-color: rgba(255, 255, 255, 0.6);
+.card {
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
-footer{
-	margin-top: -3rem;
+footer {
+  margin-top: -3rem;
 }
 
-.jumbotron h3{
-	font-family: "League Spartan", sans-serif;
-	font-optical-sizing: auto;
-	font-weight: 600;
-	font-style: normal;
-	line-height: 60px;
+.jumbotron h3 {
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 60px;
 }
 
 .myimg {
-  box-shadow: 0 0 20px 1px #ffffff, /* Bayangan dengan warna hitam */
-              0 0 20px 2px #0011F3; 
+  box-shadow: 0 0 20px 1px #ffffff, 0 0 20px 2px #0011f3;
 }
 
-
-.jumbotron p{
-	line-height: 1px;
+.jumbotron p {
+  line-height: 1px;
 }
 
-.textjustify{
-	text-align: justify;
+.textjustify {
+  text-align: justify;
 }
 
-.myposition{
-	text-align: left;
+.myposition {
+  text-align: left;
 }
 
-
-section{
-	padding-top: 5rem;
+section {
+  padding-top: 5rem;
 }
 
-#projects img{
-	width: 45%;
+#skill img {
+  width: 45%;
 }
 
-#projects h2{
-	font-family: "Rufina", serif;
-	font-weight: 700;
-	font-style: normal;
-	
+#skill h2 {
+  font-family: "Rufina", serif;
+  font-weight: 700;
+  font-style: normal;
 }
+
+.gallery {
+  display: flex;
+  align-items: center;
+}
+
+button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/*============================================= PROJEK =============================================*/
+.containerprojek {
+  display: grid;
+  place-items: center;
+  margin-inline: 1.5rem;
+  padding-block: 5rem;
+}
+
+.card__container {
+  display: grid;
+  row-gap: 3.5rem;
+}
+
+.card__article {
+  position: relative;
+  overflow: hidden;
+}
+
+.card__img {
+  width: 328px;
+  border-radius: 1.5rem;
+}
+
+.card__data {
+  width: 280px;
+  background-color: var(--container-color);
+  padding: 1.5rem 2rem;
+  box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.15);
+  border-radius: 1rem;
+  position: absolute;
+  bottom: -9rem;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  opacity: 0;
+  transition: opacity 1s 1s;
+}
+
+.card__description {
+  display: block;
+  font-size: var(--small-font-size);
+  margin-bottom: 0.25rem;
+}
+
+.card__title {
+  font-size: var(--h2-font-size);
+  font-weight: 500;
+  color: var(--title-color);
+  margin-bottom: 0.75rem;
+}
+
+.card__button {
+  text-decoration: none;
+  font-size: var(--small-font-size);
+  font-weight: 500;
+  color: var(--first-color);
+}
+
+.card__button:hover {
+  text-decoration: underline;
+}
+
+/* Naming animations in hover */
+.card__article:hover .card__data {
+  animation: show-data 1s forwards;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.card__article:hover {
+  animation: remove-overflow 2s forwards;
+}
+
+.card__article:not(:hover) {
+  animation: show-overflow 2s forwards;
+}
+
+.card__article:not(:hover) .card__data {
+  animation: remove-data 1s forwards;
+}
+
+/* Card animation */
+@keyframes show-data {
+  50% {
+    transform: translateY(-10rem);
+  }
+  100% {
+    transform: translateY(-7rem);
+  }
+}
+
+@keyframes remove-overflow {
+  to {
+    overflow: initial;
+  }
+}
+
+@keyframes remove-data {
+  0% {
+    transform: translateY(-7rem);
+  }
+  50% {
+    transform: translateY(-10rem);
+  }
+  100% {
+    transform: translateY(0.5rem);
+  }
+}
+
+@keyframes show-overflow {
+  0% {
+    overflow: initial;
+    pointer-events: none;
+  }
+  50% {
+    overflow: hidden;
+  }
+}
+
+/*============================================= PROJEK =============================================*/
 
 @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
+@media (max-width: 992px) {
+  html {
+    font-size: 60%;
+  }
 
-@media (max-width:992px){
-	html{
-		font-size: 60%;
-	}
+  img {
+    width: 60%;
+  }
 
-	img{
-		width: 60%;
-	}
+  .jumbotron,
+  #about,
+  #contact,
+  #skill {
+    padding-top: 20rem;
+  }
 
-	.jumbotron,#about,#contact,#projects{
-		padding-top: 20rem ;
-	}
-
-	#contact{
-		margin-bottom: 15rem;
-	}
+  #contact {
+    margin-bottom: 15rem;
+  }
 }
 
 @media (max-width: 768px) {
-  	.jumbotron {
-   	 	padding-top: 15rem;
-    	min-height: 100vh;
-  	}
+  .jumbotron {
+    padding-top: 15rem;
+    min-height: 100vh;
+  }
 
-  	.jumbotron h3{
-			font-family: "League Spartan", sans-serif;
-			font-optical-sizing: auto;
-			font-weight: 600;
-			font-style: normal;
-			line-height: 35px;
-		}
+  .jumbotron h3 {
+    font-family: "League Spartan", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    line-height: 35px;
+  }
 
-  	.jumbotron .row.myposition.align-items-center {
-    	flex-direction: column-reverse; /* Mengubah urutan elemen agar gambar berada di atas */
-  	}
+  .jumbotron .row.myposition.align-items-center {
+    flex-direction: column-reverse; /* Mengubah urutan elemen agar gambar berada di atas */
+  }
 
-  	.jumbotron .col img {
-    	width: 40%;
-    	margin-bottom: 25px;
-  	}
+  .jumbotron .col img {
+    width: 40%;
+    margin-bottom: 25px;
+  }
 
-  	.myposition {
-    	text-align: center;
-  	}
+  .myposition {
+    text-align: center;
+  }
 
-  	#projects img{
-  		width: 65%;
-  	}
+  #skill img {
+    width: 65%;
+  }
+
+  .containerprojek {
+    margin-inline: 1rem;
+  }
+
+  .card__data {
+    width: 250px;
+    padding: 1rem;
+  }
 }
 
+@media (max-width: 576px) {
+  #about,
+  #skill {
+    min-height: 100%;
+  }
+  #contact {
+    margin-bottom: -3rem;
+  }
 
-@media (max-width:576px){
-	#about,#projects{
-		min-height: 100%;
-	}
-	#contact{
-		margin-bottom:-3rem;
-	}
-
-	#projects img{
-  		width: 30%;
-  	}
+  #skill img {
+    width: 30%;
+  }
 }
