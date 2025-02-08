@@ -298,7 +298,6 @@ function App() {
       };
 
       const handleTouchMove = (event) => {
-        event.preventDefault();
         mouseRef.current.x = event.touches[0].clientX;
         mouseRef.current.y = event.touches[0].clientY;
       };
@@ -314,7 +313,7 @@ function App() {
       };
 
       window.addEventListener("mousemove", handleMouseMove);
-      window.addEventListener("touchmove", handleTouchMove, { passive: false });
+      window.addEventListener("touchmove", handleTouchMove, { passive: true });
       window.addEventListener("resize", handleResize);
 
       // Start animation
