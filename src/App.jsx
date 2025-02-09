@@ -15,17 +15,25 @@ import {
   Code,
   Briefcase,
   Layers,
-  Book, // Tambahkan import ini
+  Book,
+  ChevronDown,
 } from "lucide-react";
 
+import { FaReact, FaNodeJs } from "react-icons/fa";
 import {
-  FaReact,
-  FaNodeJs,
-  FaJsSquare,
-  FaPalette,
-  FaServer,
-} from "react-icons/fa";
-import { SiPhp, SiJavascript, SiTailwindcss, SiLaravel } from "react-icons/si";
+  SiPhp,
+  SiJavascript,
+  SiTailwindcss,
+  SiLaravel,
+  SiCodeigniter,
+  SiMysql,
+  SiGit,
+  SiHtml5,
+  SiCss3,
+  SiBootstrap,
+  SiMongodb,
+  SiFirebase,
+} from "react-icons/si";
 import Notification from "./Notification";
 
 function App() {
@@ -33,8 +41,8 @@ function App() {
   const [activeSection, setActiveSection] = useState("home");
   const [typedText, setTypedText] = useState("");
   const [scrollProgress, setScrollProgress] = useState(0);
-  const fullText =
-    "Informatics Student | Frontend Development Student | Tech Enthusiast";
+  const [showAll, setShowAll] = useState(false);
+  const fullText = "Informatics Student | Web Developer | Digital Creative";
 
   const [notification, setNotification] = useState({
     isVisible: false,
@@ -354,67 +362,123 @@ function App() {
   const stats = [
     { icon: <Layers />, value: "7+", label: "Personal Projects" }, // Layers icon lebih cocok untuk proyek
     { icon: <Book />, value: "100+", label: "Study Hours" }, // Book icon untuk jam belajar
-    { icon: <Code />, value: "3+", label: "Languages Learned" }, // Code icon tetap cocok untuk bahasa pemrograman
+    { icon: <Code />, value: "2+", label: "Languages Learned" }, // Code icon tetap cocok untuk bahasa pemrograman
     { icon: <Award />, value: "3+", label: "Course Certificates" }, // Award icon tetap cocok untuk sertifikat
   ];
 
   // Skills data
   const skills = [
     {
-      name: "React",
+      name: "HTML5",
       description:
-        "Library JavaScript untuk membangun antarmuka pengguna yang dinamis dan interaktif.",
-      category: "Frontend Development",
-      icon: <FaReact className="w-10 h-10 text-cyan-400" />,
-      color: "bg-[#61DAFB]",
+        "Creating semantic and accessible web structure with modern HTML5 features and best practices.",
+      category: "Frontend",
+      icon: <SiHtml5 className="w-10 h-10 text-[#E34F26]" />,
+      color: "bg-[#E34F26]",
+    },
+    {
+      name: "CSS3",
+      description:
+        "Styling web applications with modern CSS features, flexbox, grid, and responsive design.",
+      category: "Frontend",
+      icon: <SiCss3 className="w-10 h-10 text-[#1572B6]" />,
+      color: "bg-[#1572B6]",
     },
     {
       name: "JavaScript",
       description:
-        "Bahasa pemrograman untuk pengembangan web interaktif di sisi klien dan server.",
-      category: "Programming Languages",
-      icon: <SiJavascript className="w-10 h-10 text-cyan-400" />,
+        "Creating interactive web applications with modern ES6+ features and asynchronous programming.",
+      category: "Programming Language",
+      icon: <SiJavascript className="w-10 h-10 text-[#F7DF1E]" />,
       color: "bg-[#F7DF1E]",
-    },
-    {
-      name: "Node.js",
-      description:
-        "Runtime JavaScript untuk pengembangan backend, API, dan layanan server.",
-      category: "Backend Development",
-      icon: <FaNodeJs className="w-10 h-10 text-cyan-400" />,
-      color: "bg-[#339933]",
-    },
-    {
-      name: "UI/UX Design",
-      description:
-        "Proses merancang pengalaman pengguna dan tampilan antarmuka yang menarik.",
-      category: "Design",
-      icon: <FaPalette className="w-10 h-10 text-cyan-400" />,
-      color: "bg-[#FF6B6B]",
     },
     {
       name: "PHP",
       description:
-        "Bahasa pemrograman sisi server untuk pengembangan web dinamis dan backend.",
-      category: "Backend Development",
-      icon: <SiPhp className="w-10 h-10 text-cyan-400" />,
+        "Server-side scripting for web applications with object-oriented programming and MVC patterns.",
+      category: "Backend Language",
+      icon: <SiPhp className="w-10 h-10 text-[#777BB4]" />,
       color: "bg-[#777BB4]",
+    },
+    {
+      name: "Bootstrap",
+      description:
+        "Rapid UI development with responsive components and customizable design framework.",
+      category: "CSS Framework",
+      icon: <SiBootstrap className="w-10 h-10 text-[#7952B3]" />,
+      color: "bg-[#7952B3]",
+    },
+    {
+      name: "React",
+      description:
+        "Building modern, responsive web applications with component-based architecture and state management.",
+      category: "Frontend Framework",
+      icon: <FaReact className="w-10 h-10 text-[#61DAFB]" />,
+      color: "bg-[#61DAFB]",
+    },
+    {
+      name: "Node.js",
+      description:
+        "Developing server-side applications and RESTful APIs with Express.js and npm ecosystem.",
+      category: "Backend Runtime",
+      icon: <FaNodeJs className="w-10 h-10 text-[#339933]" />,
+      color: "bg-[#339933]",
     },
     {
       name: "TailwindCSS",
       description:
-        "Framework CSS utility-first untuk membangun antarmuka yang cepat dan responsif.",
-      category: "Styling",
-      icon: <SiTailwindcss className="w-10 h-10 text-cyan-400" />,
+        "Building responsive interfaces with utility-first CSS framework and custom design systems.",
+      category: "CSS Framework",
+      icon: <SiTailwindcss className="w-10 h-10 text-[#06B6D4]" />,
       color: "bg-[#06B6D4]",
     },
     {
       name: "Laravel",
       description:
-        "Framework PHP untuk pengembangan backend yang efisien dengan fitur bawaan seperti autentikasi dan ORM.",
-      category: "Backend Development",
-      icon: <SiLaravel className="w-10 h-10 text-cyan-400" />,
+        "Full-stack web development with elegant syntax, MVC architecture, and robust ecosystem.",
+      category: "PHP Framework",
+      icon: <SiLaravel className="w-10 h-10 text-[#FF2D20]" />,
       color: "bg-[#FF2D20]",
+    },
+    {
+      name: "CodeIgniter",
+      description:
+        "Lightweight PHP framework for building dynamic web applications with MVC pattern.",
+      category: "PHP Framework",
+      icon: <SiCodeigniter className="w-10 h-10 text-[#EF4223]" />,
+      color: "bg-[#EF4223]",
+    },
+    {
+      name: "MySQL",
+      description:
+        "Database design and management with SQL queries, relationships, and optimization.",
+      category: "Database",
+      icon: <SiMysql className="w-10 h-10 text-[#4479A1]" />,
+      color: "bg-[#4479A1]",
+    },
+    {
+      name: "Git",
+      description:
+        "Version control and collaboration with branching strategies and team workflow.",
+      category: "Development Tool",
+      icon: <SiGit className="w-10 h-10 text-[#F05032]" />,
+      color: "bg-[#F05032]",
+    },
+    {
+      name: "MongoDB",
+      description:
+        "NoSQL database implementation for scalable applications with flexible document-based storage.",
+      category: "Database",
+      icon: <SiMongodb className="w-10 h-10 text-[#47A248]" />,
+      color: "bg-[#47A248]",
+    },
+    {
+      name: "Firebase",
+      description:
+        "Cloud-based platform for building web and mobile applications with real-time database and authentication.",
+      category: "Database",
+      icon: <SiFirebase className="w-10 h-10 text-[#FFCA28]" />,
+      color: "bg-[#FFCA28]",
     },
   ];
 
@@ -422,7 +486,8 @@ function App() {
   const projects = [
     {
       title: "Bakatku",
-      description: "Bakatku built with React and Node.js",
+      description:
+        "A talent discovery platform that helps users explore and identify their natural abilities and potential through interactive assessments and personalized insights",
       tech: ["React", "Node.js", "MongoDB", "TailwindCSS"],
       image: "./project1.png",
       link: "#",
@@ -430,10 +495,21 @@ function App() {
       featured: true,
     },
     {
-      title: "AI Dashboard",
-      description: "Analytics dashboard with machine learning insights",
+      title: "News",
+      description:
+        "Modern news platform delivering curated, real-time information across multiple categories with an intuitive reading experience",
       tech: ["Laravel", "TailwindCSS", "MySql"],
       image: "./project2.png",
+      link: "#",
+      github: "#",
+      featured: false,
+    },
+    {
+      title: "Perpustakaan",
+      description:
+        "Digital library management system streamlining book lending, member tracking, and inventory management with a user-friendly interface",
+      tech: ["Code Igniter", "CSS", "MySql"],
+      image: "./project3.png",
       link: "#",
       github: "#",
       featured: false,
